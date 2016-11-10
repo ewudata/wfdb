@@ -17,7 +17,8 @@ alias mkdir='mkdir -pv'
 " >> /home/vagrant/.bash_profile
 
 apt-get update
-apt-get --assume-yes install gcc libcurl4-openssl-dev libexpat1-dev 
+apt-get --assume-yes install build-essential libcurl4-openssl-dev libexpat1-dev 
+# apt-get --assume-yes install gcc libcurl4-openssl-dev libexpat1-dev 
 
 su -c "wget --quiet https://www.physionet.org/physiotools/wfdb.tar.gz" vagrant
 su -c "tar xfvz wfdb.tar.gz" vagrant
@@ -31,5 +32,7 @@ make check
 # su -c "wget --quiet https://physionet.org/physiotools/archives/wfdb-swig-10.5.0.tar.gz" vagrant
 # su -c "wget --quiet http://physionet.org/physiotools/wfdb-swig.tar.gz" vagrant
 # su -c "tar xfvz wfdb-swig.tar.gz" vagrant
+
+su -c "cp /vagrant/psamples.c ." vagrant
 
 echo "bootstrap scirpt ends"
